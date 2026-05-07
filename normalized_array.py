@@ -16,7 +16,22 @@ def normalized_array(data):
     # המרת הקלט ל-numpy array לצורך חישובים וקטוריים
     data = np.array(data)
     
-    # --- כיתבו את הקוד שלכם כאן ---
+    import numpy as np
+
+def normalize_array(arr):
+    # חישוב ערכי המינימום והמקסימום של המערך
+    min_val = np.min(arr)
+    max_val = np.max(arr)
+    
+    # בדיקה האם כל הערכים שווים (כדי למנוע חלוקה באפס)
+    if max_val == min_val:
+        return np.zeros_like(arr)
+    
+    # חישוב הנרמול לפי הנוסחה בצורה וקטורית
+    # x_norm = (x - min) / (max - min)
+    normalized = (arr - min_val) / (max_val - min_val)
+    
+    return normalized
     pass
     # חשוב לזכור להחליף את pass ב- return
 
